@@ -29,3 +29,4 @@ def get_user(user_id: int):
     conn.close()
     return user
 # trigger
+# trigger2
