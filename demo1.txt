@@ -1,7 +1,7 @@
 cd ~/Desktop/guardian-demo
 git checkout main
-git checkout -b demo-69
-cat > login.py << 'EOF'
+git checkout -b demo-101
+cat > ex.py << 'EOF'
 import sqlite3
 
 def get_db():
@@ -33,4 +33,4 @@ def get_user(user_id: int):
     conn.close()
     return user
 EOF
-git add . && git commit -m "add login module" && git push origin demo-69
+git add . && git commit -m "add login module" && git push origin demo-101
