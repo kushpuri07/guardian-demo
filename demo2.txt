@@ -1,6 +1,6 @@
 cd ~/Desktop/guardian-demo
 git checkout main
-git checkout -b check
+git checkout -b demo-2
 cat > login.py << 'EOF'
 import sqlite3
 
@@ -20,17 +20,22 @@ def get_db():
 
 def login(username: str, password: str):
     conn = get_db()
-    query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
-    cursor = conn.execute(query)
+    cursor = conn.execute(
+        "SELECT * FROM users WHERE username = ? AND password = ?",
+        (username, password)
+    )
     user = cursor.fetchone()
     conn.close()
     return user
 
 def get_user(user_id: int):
     conn = get_db()
-    cursor = conn.execute(f"SELECT * FROM users WHERE id = {user_id}")
+    cursor = conn.execute(
+        "SELECT * FROM users WHERE id = ?",
+        (user_id,)
+    )
     user = cursor.fetchone()
     conn.close()
     return user
 EOF
-git add . && git commit -m "add login module" && git push origin check
+git add . && git commit -m "add secure login module" && git push origin demo-2
