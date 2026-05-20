@@ -1,5 +1,5 @@
 cd ~/Desktop/guardian-demo
 git checkout main
 git checkout -b test-js-88
-echo "////// v6" >> auth.js
+echo "////// v9" >> auth.js
 git add . && git commit -m "update auth" && git push origin test-js88
